@@ -1,0 +1,17 @@
+.p5Canvas {
+    width: 999px;
+    height: 333px;
+    position: absolute;
+    transform: translate(-50%,-60%);
+    top: 50vh;
+    left: 50vw;
+    border-radius: 5px;
+}
+
+body {
+    background:beige;
+}
+
+audio {
+    display:none;
+}
