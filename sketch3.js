@@ -36,7 +36,8 @@ function setup() {
 
 
 function draw() {
-    
+    youLose();
+    moveOn();
     blocks = [];
     coins = [];
     spikes = [];
@@ -45,10 +46,11 @@ function draw() {
     background(116, 245, 247);
     renderScene(scene1);
 
-    fill(220,220,220);
+    textSize(16);
+    fill(0,0,0);
     stroke(220,220,220);
-    text(`Score: ${sessionStorage.getItem(score)+score}`,30,30)
-    text(`${lives} lives`,30,50);
+    text(`Score: ${sessionStorage.getItem(score)+score}`,30,40)
+    text(`${lives} lives`,30,60);
 
     playerY += velocityY;
 
@@ -61,13 +63,19 @@ function draw() {
     moveOn();
 
     if(keyIsDown(LEFT_ARROW)) {
+        youLose();
+    moveOn();
         limits();
         playerX -= speed;
     } if (keyIsDown(RIGHT_ARROW)) {
+        youLose();
+    moveOn();
         limits();
         playerX += speed;
     }
     if (keyIsDown(UP_ARROW)) {
+        youLose();
+    moveOn();
         limits();
         if (velocityY == 0) {
             console.log('hi', velocityY)
@@ -76,10 +84,11 @@ function draw() {
             fall();
         }
     } if (!keyIsDown(UP_ARROW)) {
+        youLose();
+    moveOn();
         limits();
         fall();
     }
-    youLose();
 }
 
 
@@ -241,17 +250,6 @@ function limits() {
         playerY = -45;
     }
 }
-
-
-
-//YO GUYS HOW BIG IS THE SQUARE
-// dimensions are 33.3 x 33.3   
-
-// wait we gotta loop one sec
-
-//we have to input the right and lefts of the square so when it touches coin we can do collision
-// yeah we should but we gotta put something up there so uhhh lets just roll with it for now 
-//so just for the presentation??
 
 if (sessionStorage.getItem("level") != 3) {
     window.location.replace("index.html");
