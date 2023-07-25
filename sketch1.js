@@ -44,10 +44,11 @@ function draw() {
     background(116, 245, 247);
     renderScene(scene1);
 
-    fill(220,220,220);
+    textSize(16);
+    fill(0,0,0);
     stroke(220,220,220);
-    text(`Score: ${score}`,30,30)
-    text(`${lives} lives`,30,50);
+    text(`Score: ${score}`,30,40)
+    text(`${lives} lives`,30,60);
 
     playerY += velocityY;
 
